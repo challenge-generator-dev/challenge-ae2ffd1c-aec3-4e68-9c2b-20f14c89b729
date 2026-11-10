@@ -1,0 +1,97 @@
+.error-notification {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  max-width: 400px;
+  padding: 16px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-notification.exiting {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+.error-notification__icon {
+  flex-shrink: 0;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.error-notification__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.error-notification__message {
+  margin: 0;
+  color: #991b1b;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.error-notification__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #dc2626;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.error-notification__close:hover {
+  background-color: #fee2e2;
+}
+
+.error-notification__close:focus {
+  outline: 2px solid #fecaca;
+  outline-offset: 2px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .error-notification {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    max-width: none;
+  }
+}
